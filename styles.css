@@ -3,6 +3,12 @@
     --flow: 5000;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: "Flow";
     src: url("./fonts/FlowVF.ttf");
@@ -13,7 +19,6 @@
 }
 
 body {
-    margin: 0;
     padding: 0 40px;
     display: flex;
     flex-direction: column;
@@ -45,11 +50,10 @@ body {
     opacity: 0;
     transition: opacity 0.3s;
     text-align: center;
-    margin: 0;
 }
 
 .flow-slider {
-    overflow: hidden;
+    overflow: scroll;
     width: 50%;
     font-family: "Flow";
     font-variation-settings: "VAPR" 0;
@@ -60,7 +64,6 @@ body {
     align-items: flex-start;
     text-align: left;
     border: 2px solid;
-    letter-spacing: 20%;
     padding: 2%;
     border-radius: 50px;
     height: 700px;
@@ -72,7 +75,6 @@ body {
     justify-items: center;
     align-items: center;
     height: auto;
-    /* width: 100vw; */
     background-position: center;
     color: black;
     text-align: center;
@@ -87,7 +89,6 @@ body {
     animation: vaprAnimation 4s infinite alternate;
     line-height: 1.1em;
     margin-bottom: 0%;
-    margin: 0%;
     color: tomato
 }
 
@@ -244,7 +245,7 @@ a:hover {
 #sliders, #font-size-slider, #letter-spacing-slider {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 10px;
     width: 100%;
     margin-bottom: 20px;
@@ -268,8 +269,6 @@ a:hover {
 
 .axis-range {
     width: 50%;                  /* Adjust width of the slider */
-    /* max-width: 500px;            /* Maximum width for the slider */
-    /* margin: 0 auto;              Center the slider horizontally */ 
 }
 
 .scale {
@@ -357,7 +356,6 @@ video.background {
 }
 
 .content {
-    /* height: 4000px; */
     background: linear-gradient(0deg, #8ad2ff, #ffec9d);
     padding: 2% 5%;
     width: 100%;
@@ -443,7 +441,7 @@ video.background {
     .flow-slider {width: 100%;}
     .axis-range {width: 80%;}
     .grid-container { flex-direction: column; width: 100%; height: auto; }
-    .grid-item { width: 100%; margin: 0; grid-column: span 8; font-size: 4rem;}
+    .grid-item { width: 100%; grid-column: span 8; font-size: 4rem;}
     .flexbox-container { flex-direction: column; gap: 2em;}
     .grid-item:nth-child(1) { grid-row: 1/2; grid-column: span 8; font-size: 4rem;}
     .grid-item:nth-child(2) { grid-row: 2/3; grid-column: span 8; font-size: 4rem;}
@@ -490,7 +488,7 @@ video.background {
 
 @media (max-width: 480px) {
     .grid-container { flex-direction: column; }
-    .grid-item { width: 100%; margin: 0; }
+    .grid-item { width: 100%;}
 }
 
 
