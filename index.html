@@ -374,30 +374,31 @@
         document.addEventListener('mousemove', createMouseTrail);
 
         function createMouseTrail(event) {
-            const mouseTrail = document.createElement('div');
-            mouseTrail.classList.add('mouse-trail');
+    const mouseTrail = document.createElement('div');
+    mouseTrail.classList.add('mouse-trail');
 
-            // Set a larger random size for the trail
-            const size = Math.random() * 40 + 30; // Random size between 30px and 70px
-            mouseTrail.style.width = `${size}px`;
-            mouseTrail.style.height = `${size / 2}px`; // Make it an oval
+    // Set a consistent size for better alignment
+    const size = Math.random() * 40 + 30; // Random size between 30px and 70px
+    mouseTrail.style.width = `${size}px`;
+    mouseTrail.style.height = `${size / 2}px`; // Make it an oval
 
-            // Set random shades of blue
-            const blueColor = `rgba(${Math.random() * 100 + 100}, ${Math.random() * 100 + 100}, 255, 0.6)`;
-            mouseTrail.style.backgroundColor = blueColor;
+    // Set random shades of blue
+    const blueColor = `rgba(${Math.random() * 100 + 100}, ${Math.random() * 100 + 100}, 255, 0.6)`;
+    mouseTrail.style.backgroundColor = blueColor;
 
-            // Position the trail at the mouse coordinates
-            mouseTrail.style.left = `${event.pageX - size / 2}px`;
-            mouseTrail.style.top = `${event.pageY - size / 2}px`;
+    // Adjust the trail to center it perfectly on the cursor
+    mouseTrail.style.left = `${event.pageX - size / 2}px`;
+    mouseTrail.style.top = `${event.pageY - size / 4}px`; // Adjust for oval height
 
-            // Append the trail to the body
-            document.body.appendChild(mouseTrail);
+    // Append the trail to the body
+    document.body.appendChild(mouseTrail);
 
-            // Remove the trail after animation ends
-            mouseTrail.addEventListener('animationend', () => {
-                mouseTrail.remove();
-            });
-        }
+    // Remove the trail after animation ends
+    mouseTrail.addEventListener('animationend', () => {
+        mouseTrail.remove();
+    });
+}
+
         window.addEventListener("scroll", function () {
             let scrollPosition = window.scrollY;
             let button = document.getElementById("download-button");
